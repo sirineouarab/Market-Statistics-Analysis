@@ -78,10 +78,10 @@ boxplot(data$Open, main = "Boxplot des prix d'ouverture", ylab = "Prix d'ouvertu
 # Boxplots pour les prix de fermeture
 boxplot(data$Close, main = "Boxplot des prix de fermeture", ylab = "Prix de fermeture")
 
+#qst5
 # Convertir la colonne Date en format Date
 data$Date <- as.Date(data$Date, format = "%Y-%m-%d")
 
-#qst5
 # Graphiques des prix d'ouverture et de fermeture
 
 plot(data$Date, data$Open, type = "l", col = "blue", lwd = 2, 
