@@ -91,3 +91,40 @@ lines(data$Date, data$Close, col = "red", lwd = 2)
 
 legend("topright", legend = c("Prix d'ouverture", "Prix de fermeture"), col = c("blue", "red"), lty = 1, lwd = 2)
 
+## qst 6
+# Boxplots comparatifs
+boxplot(data$Open, data$Close, names = c("Ouverture", "Fermeture"), col = c("blue", "red"), main = "Comparaison des Prix d'Ouverture et de Fermeture")
+
+
+# Test statistique de Wilcoxon
+test_result <- wilcox.test(data$Open, data$Close, paired = TRUE)
+test_result
+
+# Test de normalité pour les différences
+shapiro.test(data$Open - data$Close)
+
+# Si les différences sont normalement distribuées, utiliser le test t apparié
+t_test_result <- t.test(data$Open, data$Close, paired = TRUE)
+t_test_result
+
+
+## qst 7 
+# Calcul de la volatilité
+data$Volatility <- abs(data$Open - data$Close)
+
+# Statistiques descriptives de la volatilité
+# Moyenne de la volatilité
+mean_volatility <- mean(data$Volatility, na.rm = TRUE)
+
+# Écart-type de la volatilité
+sd_volatility <- sd(data$Volatility, na.rm = TRUE)
+
+# Valeurs minimum et maximum de la volatilité
+min_volatility <- min(data$Volatility, na.rm = TRUE)
+max_volatility <- max(data$Volatility, na.rm = TRUE)
+
+# Afficher les résultats
+mean_volatility
+sd_volatility
+min_volatility
+max_volatility
