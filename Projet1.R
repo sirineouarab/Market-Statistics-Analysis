@@ -72,24 +72,21 @@ hist(data$Open, main = "Distribution des prix d'ouverture", xlab = "Prix d'ouver
 # Histogramme pour les prix de fermeture
 hist(data$Close, main = "Distribution des prix de fermeture", xlab = "Prix de fermeture", col = "lightgreen", border = "black", breaks = 20)
 
-# Boxplots pour les prix d'ouverture
-boxplot(data$Open, main = "Boxplot des prix d'ouverture", ylab = "Prix d'ouverture")
-
-# Boxplots pour les prix de fermeture
-boxplot(data$Close, main = "Boxplot des prix de fermeture", ylab = "Prix de fermeture")
-
 #qst5
 # Convertir la colonne Date en format Date
 data$Date <- as.Date(data$Date, format = "%Y-%m-%d")
 
-# Graphiques des prix d'ouverture et de fermeture
+# Graphiques des prix d'ouverture
 
 plot(data$Date, data$Open, type = "l", col = "blue", lwd = 2, 
-     main = "Tendance temporelle des prix d'ouverture et de fermeture", xlab = "Date", ylab = "Prix")
+     main = "Tendance temporelle des prix d'ouverture", 
+     xlab = "Date", ylab = "Prix d'ouverture")
 
-lines(data$Date, data$Close, col = "red", lwd = 2)
+# Tendance des prix de fermeture
 
-legend("topright", legend = c("Prix d'ouverture", "Prix de fermeture"), col = c("blue", "red"), lty = 1, lwd = 2)
+plot(data$Date, data$Close, type = "l", col = "red", lwd = 2, 
+     main = "Tendance temporelle des prix de fermeture", 
+     xlab = "Date", ylab = "Prix de fermeture")
 
 ## qst 6
 # Boxplots comparatifs
